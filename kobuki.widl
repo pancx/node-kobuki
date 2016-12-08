@@ -1,0 +1,169 @@
+dictionary CoreSensorsData {
+  unsigned short timeStamp;
+  unsigned short bumper;
+  unsigned short wheelDrop;
+  unsigned short cliff;
+  unsigned short leftEncoder;
+  unsigned short rightEncoder;
+  byte leftPwm; 
+  byte rightPwm; 
+  unsigned short buttons;
+  unsigned short charger;
+  unsigned short battery;
+  unsigned short overCurrent;
+};
+
+dictionary DockIRData {
+  sequence<octet> docking;  //3
+};
+
+dictionary CliffData {
+  sequence<unsigned short> bottom;  //3
+};
+
+dictionary CurrentData {
+  sequence<octet> current;  //2
+};
+
+dictionary GpInputData {
+  unsigned short digitalInput;
+  sequence<unsigned short> analogInput;  //4
+};
+
+dictionary InertiaData {
+  unsigned short angle;
+  unsigned short angleRate;
+  sequence<octet> acc;  //3 unsigned char;
+};
+
+dictionary ThreeAxisGyroData {
+  octet frameId;
+  octet followedDataLength;
+  sequence<unsigned short> data;  //3*8
+};
+
+dictionary ControllerInfoData {  //type(0), p_gain(100*1000), i_gain(100), d_gain(2*1000)
+  octet type;
+  unsigned long pGain;
+  unsigned long iGain;
+  unsigned long dGain;
+};
+
+enum Source {
+  "none",
+  "adapter",
+  "dock"
+};
+enum Level {
+  "dangerous",
+  "low",
+  "healthy",
+  "maximum"
+};
+enum State {
+  "discharging",
+  "charged",
+  "charging"
+};
+dictionary Battery {
+  Source chargingSource;
+  Level chargingLevel;
+  State chargingState;
+  double percent;
+};
+
+dictionary VersionInfo {
+  DOMString firmware;
+  DOMString hardware;
+  DOMString software;
+  DOMString udid;
+};
+
+dictionary WheelJointStates {
+  double wheelLeftAngle;
+  double wheelLeftAngleRate;
+  double wheelRightAngle;
+  double wheelRightAngleRate;
+};
+
+dictionary DigitalOutput {
+  sequence<boolean> values;   //4
+  sequence<boolean> mask;     //4
+};
+
+enum LedColour { 
+  "black", 
+  "red", 
+  "green", 
+  "orange" 
+};
+enum LedNumber { 
+  "led1", 
+  "led2" 
+};
+
+enum SoundSequences {
+  "on",
+  "off",
+  "recharge",
+  "button"
+  "error"
+  "cleaningStart"
+  "cleaningEnd"
+};
+
+dictionary PoseUpdateData { 
+  double x; 
+  double y;
+  double dx;
+  double dth;
+  double heading;
+};
+
+[
+Constructor, 
+Constructor(DOMString sigslotsNamespace)
+]
+
+interface KobukiManager {
+  
+  //Raw Data
+  CoreSensorsData getCoreSensorData();
+  DockIRData getDockIRData(); 
+  CliffData getCliffData(); 
+  CurrentData getCurrentData(); 
+  GpInputData getGpInputData(); 
+  InertiaData getInertiaData();
+  ThreeAxisGyroData getRawInertiaData();
+  ControllerInfoData getControllerInfoData();
+
+  //Processed Data and Status
+  Battery batteryStatus();
+  double getHeading();
+  double getAngularVelocity();
+  VersionInfo versionInfo();
+  WheelJointStates getWheelJointStates(WheelJointStates wheelJointStates);//TODO: whether needs arguments???
+  boolean isAlive();
+  boolean isEnabled();
+  boolean isShutdown();
+
+  //Soft Commands
+  void resetOdometry();
+
+  //Hard Commands
+  void setBaseControl(double linear, double angular);
+  void setLed(LedNumber ledNo, LedColour ledColor);
+  void setDigitalOutput(DigitalOutput digitalOutput);
+  void setExternalPower(DigitalOutput digitalOutput);
+  void playSoundSequence(SoundSequences soundSequence);
+  boolean setControllerGain(ControllerInfoData controllerInfoData);
+  boolean getControllerGain();
+
+  //The Differential Drive Module
+  PoseUpdateData updateOdometry();
+  PoseUpdateData updateOdometry(PoseUpdateData pose);
+
+  //Event Emitter
+  Promise<String> connect(String eventName);
+  void disconnect(String eventName);
+};

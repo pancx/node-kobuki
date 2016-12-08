@@ -1,0 +1,14 @@
+{
+  "name": "node-kobuki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pancx",
+  "license": "ISC",
+  "dependencies": {
+    "widl-nan": "git+ssh://git@github.com/otcshare/widl-nan.git"
+  }
+}
