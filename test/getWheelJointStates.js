@@ -1,8 +1,8 @@
 function sleep(d){
   for(var t=Date.now(); Date.now() - t <=d;);
 }
-var addon = require(".././index");
-var kobuki = new addon.KobukiManager("/kobuki");
+var addon = require('../index');
+var kobuki = new addon.KobukiManager('/kobuki');
 var wheelJointStates = {
   wheelLeftAngle: 0,
   wheelLeftAngleRate: 0,
@@ -12,6 +12,10 @@ var wheelJointStates = {
 while(true)
 {
   sleep(200);
+  /**
+   * @param {Object} wheelJointStates - defined as above
+   * @return {Object} WheelJointStates
+   */
   wheelJointStates = kobuki.getWheelJointStates(wheelJointStates);
   console.log('Wheel left angle is: ' + wheelJointStates.wheelLeftAngle);
   console.log('Wheel left angle rate is: ' + wheelJointStates.wheelLeftAngleRate);

@@ -1,12 +1,18 @@
 function sleep(d){
   for(var t=Date.now(); Date.now() - t <=d;);
 }
-var addon = require(".././index");
-var kobuki = new addon.KobukiManager("/kobuki");
+var addon = require('../index');
+var kobuki = new addon.KobukiManager('/kobuki');
 
 while(true)
 {
   sleep(500);
+  /**
+   * Get the core sensor data of Kobuki, including timestamp, bumper sensor, wheeldrop sensor, cliff sensor, 
+   * encoders, pwm, buttons, charger state, battery, overcurrent.
+   * All above are raw data, find more info in page https://yujinrobot.github.io/kobuki/doxygen/enAppendixProtocolSpecification.html
+   * @return {Object} ControllerInfoData
+   */
   var sensorData = kobuki.getCoreSensorData();
   console.log('Timestamp is: ' + sensorData.timeStamp);
   console.log('Bumper sensor data is: ' + sensorData.bumper);

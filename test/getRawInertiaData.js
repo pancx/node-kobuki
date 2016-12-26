@@ -1,12 +1,16 @@
 function sleep(d){
   for(var t=Date.now(); Date.now() - t <=d;);
 }
-var addon = require(".././index");
-var kobuki = new addon.KobukiManager("/kobuki");
+var addon = require('../index');
+var kobuki = new addon.KobukiManager('/kobuki');
 
 while(true)
 {
   sleep(500);
+  /**
+   * Get raw inertia data
+   * @return {Object} ThreeAxisGyroData has frameId, followedDataLength and data
+   */
   var inertiaData = kobuki.getRawInertiaData();
   console.log('The frameId is: [' + inertiaData.frameId + ']');
   console.log('The followed data Length is: [' + inertiaData.followedDataLength + ']');

@@ -1,9 +1,13 @@
 function sleep(d){
   for(var t=Date.now(); Date.now() - t <=d;);
 }
-var addon = require(".././index");
-var kobuki = new addon.KobukiManager("/kobuki");
+var addon = require('../index');
+var kobuki = new addon.KobukiManager('/kobuki');
 
+/**
+ * play the build-in sound of Kobuki
+ * @param {String} SoundSequences - 'on', 'off', 'recharge', 'button', 'error', 'cleaningStart', 'cleaningEnd'.
+ */
 kobuki.playSoundSequence('on');
 sleep(100);
 kobuki.playSoundSequence('off');

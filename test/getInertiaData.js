@@ -1,12 +1,16 @@
 function sleep(d){
   for(var t=Date.now(); Date.now() - t <=d;);
 }
-var addon = require(".././index");
-var kobuki = new addon.KobukiManager("/kobuki");
+var addon = require('../index');
+var kobuki = new addon.KobukiManager('/kobuki');
 
 while(true)
 {
   sleep(100);
+  /**
+   * Get inertia data
+   * @return {Object} InertiaData has angle, angleRate, acc
+   */
   var inertiaData = kobuki.getInertiaData();
   console.log('The angle is: [' + inertiaData.angle + ']');
   console.log('The angleRate is: [' + inertiaData.angleRate + ']');
