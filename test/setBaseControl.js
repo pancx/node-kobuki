@@ -9,9 +9,11 @@ var kobuki = new addon.KobukiManager('/kobuki');
  * @param {Number} linear velocity in m/s
  * @param {Number} angular velocity in rad/s
  */
-kobuki.setBaseControl(1.0, 0.0);
-sleep(1000);
+kobuki.setBaseControl(0.5, 0.0);
+sleep(2000);
 kobuki.setBaseControl(0.0, 1.0);
 sleep(3141);
-kobuki.setBaseControl(1.0, 0.0);
+kobuki.setBaseControl(0.5, 0.0);
+sleep(2000);
+kobuki.setBaseControl(0.0, 0.0);
 sleep(1000);

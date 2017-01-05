@@ -12,15 +12,15 @@ while(true)
    * @param {String} Led color: 'red', 'orange', 'green', 'black'
    */
   kobuki.setLed('led1', 'red');
-  kobuki.setLed('led2', 'red');
-  sleep(500);
-  kobuki.setLed('led1', 'orange');
   kobuki.setLed('led2', 'orange');
   sleep(500);
-  kobuki.setLed('led1', 'green');
+  kobuki.setLed('led1', 'orange');
   kobuki.setLed('led2', 'green');
   sleep(500);
-  kobuki.setLed('led1', 'black');
+  kobuki.setLed('led1', 'green');
   kobuki.setLed('led2', 'black');
+  sleep(500);
+  kobuki.setLed('led1', 'black');
+  kobuki.setLed('led2', 'red');
   sleep(500);
 }

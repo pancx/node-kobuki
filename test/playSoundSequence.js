@@ -21,3 +21,4 @@ sleep(100);
 kobuki.playSoundSequence('cleaningStart');
 sleep(100);
 kobuki.playSoundSequence('cleaningEnd');
+sleep(100);

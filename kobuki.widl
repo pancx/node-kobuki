@@ -14,32 +14,32 @@ dictionary CoreSensorsData {
 };
 
 dictionary DockIRData {
-  sequence<octet> docking;  //3
+  unsigned short[] docking;  //3
 };
 
 dictionary CliffData {
-  sequence<unsigned short> bottom;  //3
+  unsigned short[] bottom;  //3
 };
 
 dictionary CurrentData {
-  sequence<octet> current;  //2
+  unsigned short[] current;  //2
 };
 
 dictionary GpInputData {
   unsigned short digitalInput;
-  sequence<unsigned short> analogInput;  //4
+  unsigned short[] analogInput;  //4
 };
 
 dictionary InertiaData {
   unsigned short angle;
   unsigned short angleRate;
-  sequence<octet> acc;  //3 unsigned char;
+  unsigned short[] acc;  //3 unsigned char;
 };
 
 dictionary ThreeAxisGyroData {
-  octet frameId;
+  unsigned short frameId;
   octet followedDataLength;
-  sequence<unsigned short> data;  //3*8
+  unsigned short[] data;  //3*8
 };
 
 dictionary ControllerInfoData {  //type(0), p_gain(100*1000), i_gain(100), d_gain(2*1000)
@@ -87,8 +87,8 @@ dictionary WheelJointStates {
 };
 
 dictionary DigitalOutput {
-  sequence<boolean> values;   //4
-  sequence<boolean> mask;     //4
+  short[] values;   //4
+  short[] mask;     //4
 };
 
 enum LedColour { 

@@ -15,9 +15,7 @@
       "include_dirs": [
         "<!(node -e \"require('nan')\")",
         ".", 
-        "../kobuki_core/install/include",
-        "../kobuki_core/src/ecl_core/ecl_eigen/include/eigen3.1.2",
-        "../kobuki_core/src/ecl_core/ecl_eigen/include/eigen3.1.2/Eigen" 
+        "$HOME/kobuki_core/src/ecl_core/ecl_eigen/include/eigen3.1.2"
       ],
       "cflags!": [
         "-fno-exceptions"

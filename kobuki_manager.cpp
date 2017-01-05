@@ -23,7 +23,7 @@ KobukiManager::KobukiManager() :
   parameters.enable_acceleration_limiter = false;
   kobuki.init(parameters);
   kobuki.enable();
-  //ecl::Sleep()(1);
+  ecl::Sleep()(1);
 }
 
 KobukiManager::KobukiManager(const std::string& sigslotsNamespace) :
@@ -48,7 +48,7 @@ KobukiManager::KobukiManager(const std::string& sigslotsNamespace) :
   parameters.enable_acceleration_limiter = false;
   kobuki.init(parameters);
   kobuki.enable();
-  //ecl::Sleep()(1);
+  ecl::Sleep()(1);
 }
 
 KobukiManager::~KobukiManager() {
