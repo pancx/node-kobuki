@@ -15,7 +15,6 @@ Install the following basic dependencies refer to their official pages.<br>
     ```<br>
 3. [Kobuki linux driver](https://yujinrobot.github.io/kobuki/doxygen/enInstallationLinuxGuide.html)<br>
     Install the kobuki driver for Linux.<br>
-    (You may need to install some dependencies like libftdi-dev and libusb-dev.)<br>
 4. [widl-nan](https://github.com/01org/widl-nan)<br>
     This toolchain transcompiles W3C Web IDL and Version 2 to the NAN C++ code. This tool improve efficiency of Node.js Addon developing, allows developers focus on spec definition and actual implementation codes.<br>
     Clone this project to your workspace and install widl-nan. Notice the step `Compile your Web IDL`, repalce it by:<br>
