@@ -20,7 +20,7 @@ Install the following basic dependencies refer to their official pages.<br>
     This toolchain transcompiles W3C Web IDL and Version 2 to the NAN C++ code. This tool improve efficiency of Node.js Addon developing, allows developers focus on spec definition and actual implementation codes.<br>
     Clone this project to your workspace and install widl-nan. Notice the step `Compile your Web IDL`, repalce it by:<br>
     ```
-    $ ./node_modules/.bin/widl-nan kobuki.widl
+    $ ./node_modules/.bin/widl-nan kobuki.widl  
     ```<br>
     And do not init helper files.<br>
 
