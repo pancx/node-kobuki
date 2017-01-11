@@ -1,5 +1,5 @@
 var addon = require('../index');
-var kobuki = new addon.KobukiManager('/kobuki');
+var kobuki = new addon.KobukiManager('/ttyUSB0');
 
 /**
  * This project implements Sigslots by inheriting EventEmitter and overriding addListener and removeListener. 

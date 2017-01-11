@@ -1,5 +1,5 @@
 var addon = require('../index');
-var kobuki = new addon.KobukiManager('/kobuki');
+var kobuki = new addon.KobukiManager('/ttyUSB0');
 /**
  * setControllerGain and getControllerInfoData are about PID control
  * @type {Object} controllerInfoData - The type should be a unsigned 8bit int. pGain, iGain, dGain are unsigned 16bit int

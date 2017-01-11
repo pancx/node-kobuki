@@ -3,7 +3,7 @@ function sleep(d){
 }
 
 var addon = require('./build/Release/node-kobuki');
-var kobuki = new addon.KobukiManager("/kobuki");
+var kobuki = new addon.KobukiManager("/ttyUSB0");
 //var kobuki = new Kobuki();
 kobuki.setLed("led1", "red");
 //kobuki.setBaseControl(-0.1, 0.2);

@@ -1,5 +1,5 @@
 var addon = require('../index');
-var kobuki = new addon.KobukiManager('/kobuki');
+var kobuki = new addon.KobukiManager('/ttyUSB0');
 
 /**
  * Get the PID control info data

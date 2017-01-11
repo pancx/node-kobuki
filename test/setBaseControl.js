@@ -2,7 +2,7 @@ function sleep(d){
   for(var t=Date.now(); Date.now() - t <=d;);
 }
 var addon = require('../index');
-var kobuki = new addon.KobukiManager('/kobuki');
+var kobuki = new addon.KobukiManager('/ttyUSB0');
 
 /**
  * Send the speed control command to Kobuki
