@@ -10,18 +10,18 @@ Install the following basic dependencies refer to their official pages.<br>
 2. [node-gyp](https://www.npmjs.com/package/node-gyp)<br>
     node-gyp is a cross-platform command-line tool written in Node.js for compiling native addon modules for Node.js.<br>
     You can install with npm:<br>
-    ``` 
-    $ npm install -g node-gyp
-    ``` <br>
+    ```
+    $ npm install -g node-gyp 
+    ```
 3. [Kobuki linux driver](https://yujinrobot.github.io/kobuki/doxygen/enInstallationLinuxGuide.html)<br>
     Install the kobuki driver for Linux.<br>
     (You may need to install some dependencies like libftdi-dev and libusb-dev.)<br>
 4. [widl-nan](https://github.com/01org/widl-nan)<br>
     This toolchain transcompiles W3C Web IDL and Version 2 to the NAN C++ code. This tool improve efficiency of Node.js Addon developing, allows developers focus on spec definition and actual implementation codes.<br>
     Clone this project to your workspace and install widl-nan. Notice the step `Compile your Web IDL`, repalce it by:<br>
-    ``` 
-    $ ./node_modules/.bin/widl-nan kobuki.widl
-    ``` <br>
+    ```
+    $ ./node_modules/.bin/widl-nan kobuki.widl 
+    ```
     And do not init helper files.<br>
 
 
@@ -45,7 +45,7 @@ Raw data can be accessed at any time by one of the following getXXX commands:
 **getControllerInfoData**<br>
 The gyro provides both filtered yaw angle as well as unfiltered 3-axis inertial data hence the two calls above.
 
-##**Processed Data and Status**
+## **Processed Data and Status**
 
 The following are convenience methods for accessing the current state of the robot
 
@@ -58,11 +58,11 @@ The following are convenience methods for accessing the current state of the rob
 **isEnabled** : true if the motor power is enabled<br>
 **isShutdown** : true if the worker threads for this driver have been shut down.<br>
 
-##**Soft Commands**
+## **Soft Commands**
 
 **resetOdometry**<br>
 
-##**Hard Commands**
+## **Hard Commands**
 
 **setBaseControl**<br>
 **setLed**<br>
@@ -72,11 +72,11 @@ The following are convenience methods for accessing the current state of the rob
 **setControllerGain**<br>
 **getControllerGain**<br>
 
-##**The Differential Drive Module**
+## **The Differential Drive Module**
 
 The final function of importance is the **updateOdometry** method. This updates the current odometry state of the robot, fusing encoder and gyro heading data with the previous known state. For deterministic odometry, it is important this method is called each time a new data packet from the kobuki arrives. Refer to the simple control loop example for more information and working code to illustrate.
 
-##**Events**
+## **Events**
 
 Sigslots are the primary way of kobuki driver to handle events emitted by the kobuki driver (c.f. with the usual function callbacks with void function pointers as arguments). You can go straight to the official documentation [Sigslots](https://yujinrobot.github.io/kobuki/doxygen/enSigslotsGuide.html) and [ecl_sigslots](http://wiki.ros.org/ecl_sigslots) to find more information. It provided an asynchronous way to control the robot indeed.　This project implements Sigslots by inheriting EventEmitter(learn more in its page [EventEmitter](https://www.npmjs.com/package/events)) and overriding **addListener** and **removeListener**. <br>
 
