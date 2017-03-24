@@ -3,33 +3,33 @@ Node-kobuki
 
 Kobuki is a lowcost mobile research robot. Kobuki has highly reliable odometry and long battery hours and provides power for an external sensor and actuator. This project aims to implement the control of kobuki by using node.js and offer apis for javascript developers.   
 
-#Installation:
+# Installation:
 Install the following basic dependencies refer to their official pages.<br>
 1. [Node.js](https://nodejs.org/en/)<br>
     Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Recommend that download the source of stable version, compile and install. <br>
 2. [node-gyp](https://www.npmjs.com/package/node-gyp)<br>
     node-gyp is a cross-platform command-line tool written in Node.js for compiling native addon modules for Node.js.<br>
     You can install with npm:<br>
-    ```
+    ``` 
     $ npm install -g node-gyp
-    ```<br>
+    ``` <br>
 3. [Kobuki linux driver](https://yujinrobot.github.io/kobuki/doxygen/enInstallationLinuxGuide.html)<br>
     Install the kobuki driver for Linux.<br>
     (You may need to install some dependencies like libftdi-dev and libusb-dev.)<br>
 4. [widl-nan](https://github.com/01org/widl-nan)<br>
     This toolchain transcompiles W3C Web IDL and Version 2 to the NAN C++ code. This tool improve efficiency of Node.js Addon developing, allows developers focus on spec definition and actual implementation codes.<br>
     Clone this project to your workspace and install widl-nan. Notice the step `Compile your Web IDL`, repalce it by:<br>
-    ```
+    ``` 
     $ ./node_modules/.bin/widl-nan kobuki.widl
-    ```<br>
+    ``` <br>
     And do not init helper files.<br>
 
 
-#Kobuki APIs
+# Kobuki APIs
 You can find its native apis on its official page [kobuki_driver: Getting Started](https://yujinrobot.github.io/kobuki/doxygen/enGettingStartedGuide.html). <br>
 This project provides javascript apis and try best to ensure their names, args and return values seem as the native apis.<br>
 
-##**Raw Data**
+## **Raw Data**
 
 The kobuki driver runs a background thread which continually retrieves packets from the kobuki, saving the raw data, and additionally doing some processing before updating the current state of the robot.
 
@@ -97,7 +97,7 @@ The following represent the available events
 * **versioninfo** : receive version info strings on this signal
 
 
-#Test & usage cases
+# Test & usage cases
 
 Refer to the cases in the `test` folder to learn more usage of the javascript apis.
 ```
