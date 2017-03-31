@@ -3,7 +3,11 @@ Node-kobuki
 
 Kobuki is a lowcost mobile research robot. Kobuki has highly reliable odometry and long battery hours and provides power for an external sensor and actuator. This project aims to implement the control of kobuki by using node.js and offer apis for javascript developers.   
 
+<<<<<<< HEAD
 #Installation:
+=======
+# Installation:
+>>>>>>> e7b4007c210027251acdcaac5b8115356654695f
 Install the following basic dependencies refer to their official pages.<br>
 1. [Node.js](https://nodejs.org/en/)<br>
     Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Recommend that download the source of stable version, compile and install. <br>
@@ -11,8 +15,13 @@ Install the following basic dependencies refer to their official pages.<br>
     node-gyp is a cross-platform command-line tool written in Node.js for compiling native addon modules for Node.js.<br>
     You can install with npm:<br>
     ```
+<<<<<<< HEAD
     $ npm install -g node-gyp
     ```<br>
+=======
+    $ npm install -g node-gyp 
+    ```
+>>>>>>> e7b4007c210027251acdcaac5b8115356654695f
 3. [Kobuki linux driver](https://yujinrobot.github.io/kobuki/doxygen/enInstallationLinuxGuide.html)<br>
     Install the kobuki driver for Linux.<br>
     (You may need to install some dependencies like libftdi-dev and libusb-dev.)<br>
@@ -20,6 +29,7 @@ Install the following basic dependencies refer to their official pages.<br>
     This toolchain transcompiles W3C Web IDL and Version 2 to the NAN C++ code. This tool improve efficiency of Node.js Addon developing, allows developers focus on spec definition and actual implementation codes.<br>
     Clone this project to your workspace and install widl-nan. Notice the step `Compile your Web IDL`, repalce it by:<br>
     ```
+<<<<<<< HEAD
     $ ./node_modules/.bin/widl-nan kobuki.widl  
     ```<br>
     And do not init helper files.<br>
@@ -30,6 +40,18 @@ You can find its native apis on its official page [kobuki_driver: Getting Starte
 This project provides javascript apis and try best to ensure their names, args and return values seem as the native apis.<br>
 
 ##**Raw Data**
+=======
+    $ ./node_modules/.bin/widl-nan kobuki.widl 
+    ```
+    And do not init helper files.<br>
+
+
+# Kobuki APIs
+You can find its native apis on its official page [kobuki_driver: Getting Started](https://yujinrobot.github.io/kobuki/doxygen/enGettingStartedGuide.html). <br>
+This project provides javascript apis and try best to ensure their names, args and return values seem as the native apis.<br>
+
+## **Raw Data**
+>>>>>>> e7b4007c210027251acdcaac5b8115356654695f
 
 The kobuki driver runs a background thread which continually retrieves packets from the kobuki, saving the raw data, and additionally doing some processing before updating the current state of the robot.
 
@@ -45,7 +67,11 @@ Raw data can be accessed at any time by one of the following getXXX commands:
 **getControllerInfoData**<br>
 The gyro provides both filtered yaw angle as well as unfiltered 3-axis inertial data hence the two calls above.
 
+<<<<<<< HEAD
 ##**Processed Data and Status**
+=======
+## **Processed Data and Status**
+>>>>>>> e7b4007c210027251acdcaac5b8115356654695f
 
 The following are convenience methods for accessing the current state of the robot
 
@@ -58,11 +84,19 @@ The following are convenience methods for accessing the current state of the rob
 **isEnabled** : true if the motor power is enabled<br>
 **isShutdown** : true if the worker threads for this driver have been shut down.<br>
 
+<<<<<<< HEAD
 ##**Soft Commands**
 
 **resetOdometry**<br>
 
 ##**Hard Commands**
+=======
+## **Soft Commands**
+
+**resetOdometry**<br>
+
+## **Hard Commands**
+>>>>>>> e7b4007c210027251acdcaac5b8115356654695f
 
 **setBaseControl**<br>
 **setLed**<br>
@@ -72,11 +106,19 @@ The following are convenience methods for accessing the current state of the rob
 **setControllerGain**<br>
 **getControllerGain**<br>
 
+<<<<<<< HEAD
 ##**The Differential Drive Module**
 
 The final function of importance is the **updateOdometry** method. This updates the current odometry state of the robot, fusing encoder and gyro heading data with the previous known state. For deterministic odometry, it is important this method is called each time a new data packet from the kobuki arrives. Refer to the simple control loop example for more information and working code to illustrate.
 
 ##**Events**
+=======
+## **The Differential Drive Module**
+
+The final function of importance is the **updateOdometry** method. This updates the current odometry state of the robot, fusing encoder and gyro heading data with the previous known state. For deterministic odometry, it is important this method is called each time a new data packet from the kobuki arrives. Refer to the simple control loop example for more information and working code to illustrate.
+
+## **Events**
+>>>>>>> e7b4007c210027251acdcaac5b8115356654695f
 
 Sigslots are the primary way of kobuki driver to handle events emitted by the kobuki driver (c.f. with the usual function callbacks with void function pointers as arguments). You can go straight to the official documentation [Sigslots](https://yujinrobot.github.io/kobuki/doxygen/enSigslotsGuide.html) and [ecl_sigslots](http://wiki.ros.org/ecl_sigslots) to find more information. It provided an asynchronous way to control the robot indeed.　This project implements Sigslots by inheriting EventEmitter(learn more in its page [EventEmitter](https://www.npmjs.com/package/events)) and overriding **addListener** and **removeListener**. <br>
 
@@ -97,10 +139,17 @@ The following represent the available events
 * **versioninfo** : receive version info strings on this signal
 
 
+<<<<<<< HEAD
 #Test & usage cases
+=======
+# Test & usage cases
+>>>>>>> e7b4007c210027251acdcaac5b8115356654695f
 
 Refer to the cases in the `test` folder to learn more usage of the javascript apis.
 ```
 $ node test.js
 ```
+<<<<<<< HEAD
 
+=======
+>>>>>>> e7b4007c210027251acdcaac5b8115356654695f
